@@ -9,6 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "ESNext",
     "target": "ESNext",
+    "resolveJsonModule": true,
     // "types": [],
     // For nodejs:
     "lib": ["ESNext", "DOM"],
@@ -40,7 +41,7 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "moduleResolution": "node",
+    // "moduleResolution": "node",
     "esModuleInterop": true,
 
   },
