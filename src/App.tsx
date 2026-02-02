@@ -1,56 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import RestaurantCard from "./components/RestaurantCard";
 
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-         <img className="logo" src="https://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY="></img>
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Cart</li>
-          <li>Contact Us</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
-
-type RestaurantCardProps = {
-  resData: {
-    info: {
-      name: string;
-      cuisines: string[];
-      avgRating: number;
-      cloudinaryImageId: string;
-      costForTwo: string;
-      sla: {
-        deliveryTime: number;
-      }
-    }
-  }
-}
-
-// Kyuki bht saare RestaurantCards use hone the isliye we made a component of it !!
-const RestaurantCard = (props: RestaurantCardProps) => {
-  const {info} = props.resData;
-
-  return (
-    <div className="res-card">
-      <img className="res-logo" alt="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          info.cloudinaryImageId}/>
-      <h4>{info.name}</h4>
-      <h4>{info.cuisines.join(", ")}</h4>
-      <h4>{info.avgRating}⭐</h4>
-      <h4>{info.costForTwo}</h4>
-      <h4>{info.sla.deliveryTime} mins</h4>
-    </div>
-  );
-};
 
 const resList = [
   {
@@ -489,21 +443,6 @@ const resList = [
                 
 ]
 
-
-const Body = () => {
-  return (
-    <div className="body">
-       <div className="search">Search</div>
-
-      <div className="res-container">
-       {resList.map((restaurant) => (
-        <RestaurantCard key={restaurant.info.id} resData={restaurant}/>
-       ))}
-      </div>
-    </div>
-  )
-}
-
 const AppLayout = () => {
   return (
     <div className="app">
@@ -512,7 +451,6 @@ const AppLayout = () => {
     </div>
   )
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(<AppLayout />)
