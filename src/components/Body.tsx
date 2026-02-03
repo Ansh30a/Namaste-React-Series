@@ -17,7 +17,7 @@ type Restaurant = {
 }
 
 const Body = () => {
-    //Local State Varibale - super power variable
+    //Local State Varibale -> super power variable
     const [listOfRestaurants, setlistOfRestaurants] = useState<Restaurant[]>([]);
 
     useEffect(() => {
@@ -33,6 +33,8 @@ const Body = () => {
                     json?.data?.cards[4]?.card?.card?.gridElements
                         ?.infoWithStyle?.restaurants || [];
                 setlistOfRestaurants(restaurants);
+                console.log(json.data.cards);
+
             } catch (err) {
                 console.log(err);
                 setlistOfRestaurants(RestaurantData.resList);
