@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import RestaurantData from "../utils/restaurantData.json";
 import { useState, useEffect } from "react";
-
+import Shimmer from "./Shimmer";
 
 type Restaurant = {
   info: {
@@ -19,8 +19,10 @@ type Restaurant = {
 
 const Body = () => {
     //Local State Variable -> super power variable
+    // <Restaurant[]> => iska mtlb hai ki jo bhi value aayegi vo Restaurant type ke objects ka ARRAY hoga
+    // ([]) => intial value mtlb starting mei koi restaurant nhi hai
     const [listOfRestaurants, setlistOfRestaurants] = useState<Restaurant[]>([]);
-
+2
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -30,33 +32,36 @@ const Body = () => {
 
                 const json = await data.json();
                 console.log(json);
+                // optional chaining
                 const restaurants =
                     json?.data?.cards[4]?.card?.card?.gridElements
                         ?.infoWithStyle?.restaurants || [];
                 setlistOfRestaurants(restaurants);
-                console.log(json.data.cards);
-
-            } catch (err) {
-                console.log(err);
-                setlistOfRestaurants(RestaurantData.resList);
-            }
+             
+                }
+                catch (err) {
+                  console.log(err);
+                 setlistOfRestaurants(RestaurantData.resList);
+            
+                }
         };
         fetchData();
     }, []);
 
+    if(listOfRestaurants.length === 0) {
+     return <Shimmer />;
+    }
+
     return (
         <div className="body">
             <div className="filter">
-                <button
-                    className="filter-btn"
+                <button className="filter-btn"
                     onClick={() => {
                         const filteredList = listOfRestaurants.filter(
                             (res) => res.info.avgRating > 4,
                         );
                         setlistOfRestaurants(filteredList);
-                    }}
-                >
-                    Top Rated Restaurants
+                    }}>Top Rated Restaurants
                 </button>
             </div>
 
