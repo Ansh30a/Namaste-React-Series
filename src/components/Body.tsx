@@ -23,6 +23,10 @@ const Body = () => {
     // ([]) => intial value mtlb starting mei koi restaurant nhi hai
     const [listOfRestaurants, setlistOfRestaurants] = useState<Restaurant[]>([]);
 
+    const [searchText, setSearchText] = useState("");
+
+    // whenever state variable updates, react triggers a reconciliation cycle (re-renders the component)
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -34,8 +38,7 @@ const Body = () => {
 
                 const cards = json?.data?.cards || [];
 
-                const restaurantCard = cards.find(
-                    (card: any) =>
+                const restaurantCard = cards.find((card: any) =>
                         card?.card?.card?.gridElements?.infoWithStyle
                             ?.restaurants,
                 );
@@ -57,6 +60,7 @@ const Body = () => {
         fetchData();
     }, []);
 
+    // This is Conditional Rendering -> rendering on the basis of any condition 
     if(listOfRestaurants.length === 0) {
      return <Shimmer />;
     }
@@ -64,6 +68,31 @@ const Body = () => {
     return (
         <div className="body">
             <div className="filter">
+                <div className="search">
+                    <input 
+                    type="text" 
+                    className="search-box"
+                    value={searchText}
+                    onChange = {(e) => {
+                       setSearchText(e.target.value)
+                    }}
+                    />
+                    <button
+                    onClick={() => {
+                        // Filter the restaurant cards and update the UI
+                        // searchText
+                        console.log(searchText);
+
+                        const filteredRestaurants = listOfRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                        console.log(filteredRestaurants)
+                        setlistOfRestaurants(filteredRestaurants);
+                        
+                    }}
+                    >
+                    Search
+                    </button>
+                </div>
+                
                 <button className="filter-btn"
                     onClick={() => {
                         const filteredList = listOfRestaurants.filter(
