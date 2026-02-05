@@ -59,7 +59,7 @@ const Body = () => {
                 setFilteredRestaurant(restaurants);
             } catch (err) {
                 console.log(err);
-                setlistOfRestaurants(RestaurantData.resList);
+                // setlistOfRestaurants(RestaurantData.resList);
             }
         };
 
