@@ -37,7 +37,7 @@ const Body = () => {
         const fetchData = async () => {
             try {
                 const res = await fetch(
-                    "https://foodfire.onrender.com/api/restaurants?lat=28.6010&lng=77.0787&page_type=DESKTOP_WEB_LISTING",
+                    "https://foodfire.onrender.com/api/restaurants?lat=28.60090200875999&lng=77.08098202943802&page_type=DESKTOP_WEB_LISTING",
                 );
 
                 const json = await res.json();
