@@ -5,7 +5,7 @@ export const CDN_URL:string = "https://media-assets.swiggy.com/swiggy/image/uplo
 
 export const LOGO_URL:string = "https://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY="
 
-export const MENU_API:string = "https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=28.4779617&lng=77.3288359&&submitAction=ENTER&restaurantId="
+export const MENU_API:string = "https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=28.6010&lng=77.0787&&submitAction=ENTER&restaurantId="
 
 
 // 2 types of export are there :
