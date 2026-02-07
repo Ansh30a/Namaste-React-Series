@@ -1,43 +1,70 @@
+// Older way of writing React code was using class based components.
+// CLASS BASED COMPONENTS
+
 import React from "react";
 
-type Props = {
+type Props = {};
+
+type userInfo = {
     name: string;
-    location: string; 
-}
+    location: string;
+    avatar_url: string
+};
 
 type State = {
-    count: number;
-    count2: number;
-}
-
-// Class Based Component -> very important for interview also
+    userInfo: userInfo | null;
+};
+ 
+// Class Based Component -> very important for interview pov
 class UserClass extends React.Component<Props, State> {
     constructor(props:Props){
         super(props);
 
-        // This is how state variable is created in a class based component 
         this.state = {
-            count: 0,
-            count2: 2,
-        }
-    };
+            userInfo: null,
+        };
+    }
+
+ // API calls
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/shreyachopra03-ux");
+    const json = await data.json();
+
+    this.setState({
+        userInfo: {
+         name: json.name,
+         location: json.location,
+         avatar_url: json.avatar_url
+    },
+    });
+
+    console.log(json);
+ }
+
+
+    componentDidUpdate() {
+        console.log('component did update')
+    }
+
+    componentWillUnmount() {
+        console.log('component unmounted');
+    }
 
     render() {
-        const { name, location } = this.props;
-        const { count, count2 } = this.state;
+        console.log("child render")
+        const { userInfo } = this.state;
+
+        if (!userInfo) {
+         return <h2>Loading...</h2>;
+        }
+
+        const { name , location, avatar_url } = userInfo;
+
         return (
              <div className="user-card">
             <h2>Name: {name}</h2>
-            <h2>Count: {count}</h2>
-            <button 
-            onClick = {() => {
-                // NEVER UPDATE STATE VARIABLES DIRECTLY
-                this.setState({
-                    count: this.state.count + 1,
-                });
-            }}
-            >Count Increase</button>
-           
+            <img src={avatar_url} alt="image" />
+            {/* <h2>Count: {count}</h2> */}
             <h3>Location: {location}</h3>
             <h4>Contact info : @chopra_shreya03</h4>
         </div>
