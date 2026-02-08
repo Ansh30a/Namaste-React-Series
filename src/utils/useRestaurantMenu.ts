@@ -1,7 +1,7 @@
 import { MENU_API } from "../utils/constants";
 import { useEffect, useState } from "react";
 
-// IT'S A CUSTOM HOOK
+// CUSTOM HOOK
 const useRestaurantMenu = (resId?: string) => {
     const [resInfo, setResInfo] = useState<any>(null)
 
