@@ -93,7 +93,7 @@ const Body = () => {
                             setSearchText(e.target.value);
                         }}
                     />
-                    <button className="px-4 py-1.5 bg-orange-500 m-4 text-xs text-white rounded-sm"
+                    <button className="px-4 py-1.5 bg-orange-500 m-4 text-xs text-white rounded-lg"
                         onClick={() => {
                             // Filter the restaurant cards and update the UI
                             // searchText
@@ -112,7 +112,7 @@ const Body = () => {
                 </div>
 
                 <button
-                    className="bg-orange-500 my-12 px-3 -ml-8 items-center text-sm text-white rounded-sm"
+                    className="bg-orange-500 my-12 px-3 -ml-8 items-center text-sm text-white rounded-lg"
                     onClick={() => {
                         const filteredList = listOfRestaurants.filter(
                             (res) => res.info.avgRating > 4,
