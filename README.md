@@ -58,7 +58,8 @@ import {Component} from "path";
 ...
 # React Hooks
 (Normal JS utility functions)
-- useCase() - Superpowerful state variables in react
+Superpowerful state variables in react
+- useCase() - 
 - useEffect() - 
 
 # Routing
