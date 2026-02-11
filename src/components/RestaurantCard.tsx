@@ -23,15 +23,14 @@ const RestaurantCard = (props: RestaurantCardProps) => {
 
   return (
     <Link to={`/restaurants/${id}`} className="restaurant-card-link">
-        <div className="res-card">
-        <img className="res-logo" alt="res-logo" src={CDN_URL +
-            info.cloudinaryImageId}/>
-        <h4>{info.name}</h4>
+      <div className="m-4 p-4 w-[250px] bg-orange-100 hover:bg-orange-200 rounded-lg">
+        <img className="rounded-lg" alt="res-logo" src={CDN_URL + info.cloudinaryImageId}/>
+        <h4 className="font-bold py-4 text-lg">{info.name}</h4>
         <h4>{info.cuisines.join(", ")}</h4>
         <h4>{info.avgRating}⭐</h4>
         <h4>{info.costForTwo}</h4>
         <h4>{info.sla.deliveryTime} mins</h4>
-        </div>
+      </div>
     </Link>
   );
 };
