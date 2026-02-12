@@ -1,3 +1,5 @@
+import { CDN_URL } from "../utils/constants";
+
 type props = {
     items: any;
 }
@@ -8,17 +10,29 @@ const ListItem = ({items}: props) => {
             {items?.map((item:any) => (
             <div 
                key = {item?.card?.info?.id}
-               className="p-2 m-2 border-gray-300 border-b-2 text-left"
+               className="border-gray-200 p-2 m-2 border-b-2 text-left flex-justify-between"
             >
+    
+            <div className="w-9/12">
             <div className="py-2">    
-            <span>{item?.card?.info?.name}</span>
-            <span> - ₹ {item?.card?.info?.price 
-                ? item?.card?.info?.price / 100
-                : item?.card?.info?.defaultPrice / 100}
-            </span>
+                 <span>{item?.card?.info?.name}</span>
+                 <span> - ₹ {item?.card?.info?.price 
+                  ? item?.card?.info?.price / 100
+                  : item?.card?.info?.defaultPrice / 100}
+                 </span>
             </div>
             <p className="text-xs">{item.card.info.description}</p>
-            </div>    
+            </div>   
+            
+            <div className="w-3/12 p-4">
+            <div className="absolute">
+            <button className="rounded-lg p-2 bg-black text-white shadow-lg m-auto">
+              Add +
+            </button>
+            </div>
+            <img src={CDN_URL + item?.card?.info?.imageId} className="w-full" />
+            </div> 
+            </div>
             ))}
         </div>    
     );
