@@ -1,9 +1,10 @@
 import RestaurantCard, { OpenOrNot } from "./RestaurantCard";
 import RestaurantData from "../utils/restaurantData.json";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 type Restaurant = {
     info: {
@@ -77,6 +78,8 @@ const Body = () => {
           </h1>
     );
 
+    const { loggedInUser, setUserName } = useContext(UserContext);
+
     // This is Conditional Rendering -> rendering on the basis of any condition
     if (listOfRestaurants.length === 0) {
         return <Shimmer />;
@@ -113,7 +116,11 @@ const Body = () => {
                 </div>
                 <div className="search m-4 p-4 flex items-center">
                 <label className="p-2">UserName :</label>
-                <input className="border border-black  p-2"/>
+                <input 
+                className="border border-black  p-2"
+                value={loggedInUser}
+                onChange={(e) => setUserName(e.target.value)}
+                />
                 </div>
             </div>
 
