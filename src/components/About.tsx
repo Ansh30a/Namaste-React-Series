@@ -1,14 +1,21 @@
 import User from "./User";
 import UserClass from "./UserClass";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 
 const About  = () => {
+    const {loggedInUser, setUserName} = useContext(UserContext)
     return (
         <div>
             <h1>About</h1>
             <h2>This is Namaste React Web Series</h2>
             <User name={"Shreya Chopra (function)"} />
-
+            <label className="p-2">UserName :</label>
+            <input 
+            className="border border-black  p-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}/>
             <UserClass/>
         </div>
     );
