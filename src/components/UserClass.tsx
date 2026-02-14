@@ -40,7 +40,6 @@ class UserClass extends React.Component<Props, State> {
     console.log(json);
  }
 
-
     componentDidUpdate() {
         console.log('component did update')
     }
@@ -50,7 +49,7 @@ class UserClass extends React.Component<Props, State> {
     }
 
     render() {
-        console.log("child render")
+        // console.log("child render")
         const { userInfo } = this.state;
 
         if (!userInfo) {
