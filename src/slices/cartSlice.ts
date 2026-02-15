@@ -5,6 +5,7 @@ const cartSlice = createSlice({
     initialState: {
         items: [],
     },
+    // Reducer will always take 2 arguments: state & action
     reducers: {
         addItem: (state:any, action:any) => {
             state.items.push(action.payload);
