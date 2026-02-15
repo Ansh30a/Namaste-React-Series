@@ -12,7 +12,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import { createRoot } from "react-dom/client"; 
 import { useContext, useEffect, useState } from "react";
 import UserContext from "./utils/UserContext";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 // App chunking
 // Code Splitting
@@ -39,12 +40,14 @@ const AppLayout = () => {
 
 
     return (
+        <Provider store={appStore}>
         <UserContext.Provider value={{ loggedInUser: userName, setUserName}}>
         <div className="app">
             <Header />
             <Outlet />
         </div>
         </UserContext.Provider>
+        </Provider>
     );
 };
 
