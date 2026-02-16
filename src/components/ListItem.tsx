@@ -11,9 +11,9 @@ const ListItem = ({items}: props) => {
 
     const dispatch = useDispatch<AppDispatch>();
 
-    const handleAddItem = () => {
+    const handleAddItem = (item:any) => {
         // dispatch an action
-        dispatch(addItem("pizza"));
+        dispatch(addItem(item));
     }
 
     return (
@@ -38,7 +38,7 @@ const ListItem = ({items}: props) => {
             <div className="absolute">
             <button
              className="rounded-lg p-2 bg-black text-white shadow-lg m-auto"
-             onClick={handleAddItem}>
+             onClick={() => handleAddItem(item)}>
              Add +
             </button>
             </div>
