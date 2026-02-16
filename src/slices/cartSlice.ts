@@ -22,14 +22,20 @@ const cartSlice = createSlice({
 
     reducers: {
         addItem: (state:any, action: PayloadAction<CartItem>) => {
-            // mutating the state here -> means to change it directly
+            // REDUX TOOLKIT uses "Immer" BEHIND THE SCENES
+            // WE HAVE TO MUTATE THE STATE
             state.items.push(action.payload);
         },
+        // removeItem and clearCart don’t need an action payload because they can complete their work using only the current state, without any extra data from outside.
         removeItem: (state:any) => {
             state.items.pop();
         },
+        // originalState = ["pizza"]
         clearCart: (state:any) => {
-            state.items = []
+            // RTK - either mutate the existing state or return a new state
+            // state.items.length = 0; // originalState = []
+
+            return { items: [] }; // this new [] will be replaced inside originalState = []
         },
     },
 });
