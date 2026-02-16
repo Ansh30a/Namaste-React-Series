@@ -43,7 +43,7 @@ const ListItem = ({items}: props) => {
             </button>
             </div>
             </div>
-            <img src={CDN_URL + item?.card?.info?.imageId} className="w-full" /> 
+            <img src={CDN_URL + item?.card?.info?.imageId} className="w-6/12" /> 
          </div>
             ))}
         </div>    
