@@ -42,7 +42,7 @@
  *    - address
  *    - contact info    
 
- 
+ ...
  # Two Types of Export/Import
 
  - Default Export/Import
@@ -62,10 +62,12 @@ Superpowerful state variables in react
 - useCase() - 
 - useEffect() - 
 
+...
 # 2 types of routing in web apps 
 - Client Side Routing
 - Server Side Routing
 
+...
 # Redux Toolkit
 - Install @reduxjs/toolkit and react-redux
 - Build our store
@@ -73,3 +75,9 @@ Superpowerful state variables in react
 - Slice (cartSlice)
 - dispatch(action)
 - Selector
+
+... 
+# Types of testing (developer)
+- Unit Testing
+- Integration Testing
+- End to End Testing - e2e testing
