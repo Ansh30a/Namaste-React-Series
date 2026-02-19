@@ -14,7 +14,7 @@
     // "types": [],
     // For nodejs:
     "lib": ["ESNext", "DOM"],
-    // "types": ["node"],
+    "types": ["jest", "@testing-library/jest-dom"],
     // and npm install -D @types/node
 
     // Other Outputs
