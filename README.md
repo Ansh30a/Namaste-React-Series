@@ -91,3 +91,6 @@ Superpowerful state variables in react
 - Configure Parcel config  file (.parcelrc) to disbale default babel transpilation
 - Jest configuration -> npx jest --init
 - Install jsdom library
+- Install @babel/preset-react -> to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
+- Install npm i -D @testing-library/jest-dom
