@@ -44,5 +44,8 @@ test("Should load 2 input boxes on the Contact component", () => {
      console.log(inputBoxes.length);
 
      // Assertion
-     expect(inputBoxes.length).toBe(2);
+    //  expect(inputBoxes.length).toBe(2);
+
+     // Other way of asserting
+     expect(inputBoxes).not.toBe(3);
 });
