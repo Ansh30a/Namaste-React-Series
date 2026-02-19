@@ -89,3 +89,5 @@ Superpowerful state variables in react
 - Installed Babel dependencies
 - Configure Babel by creating "babel.config.js" file in root directory
 - Configure Parcel config  file (.parcelrc) to disbale default babel transpilation
+- Jest configuration -> npx jest --init
+- Install jsdom library
